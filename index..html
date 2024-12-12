@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settimeout </title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0d98cc1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            
+        }
+
+        /* Container styles */
+        #container {
+            background-color:rgb(245, 189, 93) ;
+            padding: 30px 50px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: rgb(16, 16, 16);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 80%;
+            min-width: 300px;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            opacity: 0;
+            transform: translateY(50px);
+            letter-spacing: 1px;
+            word-spacing: 2px;
+        }
+
+        /* Styling the container text */
+        #container {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        h1{
+            color: rgb(188, 71, 71);
+        }
+
+        /* Add animation to fade-in effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Animating the text content */
+        #container {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <center><h1>QUOTES RANDOM</h1></center>
+        <div id="container"></div>
+    </div>
+    <script>
+        const quotes=["The only way to do great work is to love what you do.",
+                    "Success is not final, failure is not fatal: It is the courage to continue that counts." ,
+                    "You miss 100% of the shots you don't take.",
+                    "In the middle of every difficulty lies opportunity." ,
+                    "Be the change that you wish to see in the world.",
+                    "The best way to predict the future is to create it.",
+                    "Believe you can and you're halfway there."  ]
+        let quoteIndex=0;
+        function changeimage(){
+            document.getElementById("container").textContent=quotes[quoteIndex];
+            quoteIndex=(quoteIndex+1)%quotes.length;
+            setTimeout((changeimage)      
+            , 5000);
+        }
+        changeimage();
+        
+    </script>
+</body>
+</html>
